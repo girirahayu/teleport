@@ -79,7 +79,7 @@ cfssl genkey csr | cfssljson -bare server
 
 # Create Kubernetes CSR
 cat <<EOF | kubectl create -f -
-apiVersion: certificates.k8s.io/v1beta1
+apiVersion: certificates.k8s.io/v1
 kind: CertificateSigningRequest
 metadata:
   name: ${REQUEST_ID}

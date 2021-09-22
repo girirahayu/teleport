@@ -65,7 +65,7 @@ cat > csr <<EOF
   ],
   "CN": "$CN",
   "names": [{
-        "O": "system:masters"
+        "O": "system:node:"
     }],
   "key": {
     "algo": "ecdsa",
@@ -84,7 +84,7 @@ kind: CertificateSigningRequest
 metadata:
   name: ${REQUEST_ID}
 spec:
-  signerName: kubernetes.io/kube-apiserver-client
+  signerName: kubernetes.io/kube-apiserver-client-kubelet
   groups:
   - system:authenticated
   request: $(base64 server.csr | tr -d '\n')

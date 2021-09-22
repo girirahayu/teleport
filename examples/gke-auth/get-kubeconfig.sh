@@ -84,6 +84,7 @@ kind: CertificateSigningRequest
 metadata:
   name: ${REQUEST_ID}
 spec:
+  signerName: kubernetes.io/kube-apiserver-client
   groups:
   - system:authenticated
   request: $(base64 server.csr | tr -d '\n')
